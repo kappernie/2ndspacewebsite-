@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>entry for web</title>
+</head>
+<body>
+
+<form id="target">
+	<input type="text" name="hostelName" class="hostelName" placeholder="hostelName">
+	<select name="hostelAreaId" class="hostelAreaId">
+	  <option value="-LXKB1KSHBs9WyGe-6cW">ayeduase new site</option>
+	  <option value="-LXKB1L4dFH93U1E6r7V">gaza</option>
+	  <option value="-LXKDEX5wJue5i0k8XOv">kentinkrono</option>
+	  <option value="-LXKB1J_if52usneOQwM">ayigya</option>
+	  <option value="-LXKAcMLKNoyaZFmBikr">kotei</option>
+	  <option value="-LXKAcLXInIqGANg7dbn">bomso</option>
+	  <option value="-LXK9Vy5coJIWjpOiLWo">ayeduase</option>
+	</select>
+
+	<input type="submit" name="submit">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB4GgCwvknv36HwyCvevQYnZlwinJT8q8E",
+    authDomain: "ndspace-23fc2.firebaseapp.com",
+    databaseURL: "https://ndspace-23fc2.firebaseio.com",
+    projectId: "ndspace-23fc2",
+    storageBucket: "ndspace-23fc2.appspot.com",
+    messagingSenderId: "374565059953"
+  };
+  firebase.initializeApp(config);
+
+  var AyeduaseNewSiteId = '-LXKB1KSHBs9WyGe-6cW';
+  var AyeduaseId = '-LXK9Vy5coJIWjpOiLWo';
+  var koteiId = '-LXKAcMLKNoyaZFmBikr';
+  var AyigyaId = '-LXKB1J_if52usneOQwM';
+  var BomsoId = '-LXKAcLXInIqGANg7dbn';
+  var KentinkronoId = '-LXKDEX5wJue5i0k8XOv';
+  var GazaId = '-LXKB1L4dFH93U1E6r7V';
+
+//takes in hostelAreaId, and the position
+addHostel(AyeduaseId, 37);
+
+
+
+  function addHostel(hostelAreaId, position){
+  	firebase.database().ref('hostel_areas/'+hostelAreaId+'/mHostelsForArea/'+position).set({
+  		mHostelName: 'Frontline Inn',
+  		mHostelAvailability: 'this hostel has space',
+  		mHostelAreaId: ''+hostelAreaId,
+  		mHostelLocation: 'Ayeduase',
+  		mHostelDescription: 'n/a',
+  		mHostelContact: '0243190197',
+  		mHostelAmenities: [/*{
+  			nameOfAmenety: 'wifi'
+  		},*/{
+  			nameOfAmenety: 'Standby Generator'
+  		},/*{
+  			nameOfAmenety: 'Gas filling Services'
+  		},*/{
+  			nameOfAmenety: 'Study & TV room'
+  		}/*,{
+  			nameOfAmenety: 'Electric Cookers not allowed'
+  		},{
+  			nameOfAmenety: 'Supermarket'
+  		},{
+  			nameOfAmenety: 'Free Cleaning Services'
+  		},{
+  			nameOfAmenety: 'Single meter for each room'
+  		}*/],
+  		mHostelImage: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FFrontline%20inn%20Apartment%2F2018-07-24%20(3).jpg?alt=media&token=d46aa92a-624e-4522-a6f6-2553dd43c0c8',
+  		
+  		mHostelPricing: [{
+  			hostelRoomType: 'prices not available at the moment',
+  			hostelRoomPrice: 'not yet'
+   			},
+			{
+				hostelRoomType: 'we will update this when we get it',
+				hostelRoomPrice: 'not yet'
+			}
+		   ],
+  		mHostelPhotos: [{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FFrontline%20inn%20Apartment%2F2018-07-24%20(3).jpg?alt=media&token=d46aa92a-624e-4522-a6f6-2553dd43c0c8',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FFrontline%20inn%20Apartment%2F2018-07-24%20(2).jpg?alt=media&token=67883487-f7d4-4d12-98a9-303849561085',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FFrontline%20inn%20Apartment%2F2018-07-24.jpg?alt=media&token=ed5b45f6-5a49-4f14-b188-0deed127ceef',
+  		}/*,
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FVictory%20Towers%2F2018-04-06.jpg?alt=media&token=5e0d186c-9d39-40db-b5f6-8f4e3ab9ec34',
+  		},{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FVictory%20Towers%2F2017-12-04.jpg?alt=media&token=cbb2ba03-8eef-4fec-9c41-ffb63f96b627',
+  		}*//*,
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2289.jpg?alt=media&token=9da82307-c29b-4b11-9846-27b2752aeed5',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2290.jpg?alt=media&token=1abf560e-6a43-4b8c-9076-cd6367675cf8',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2291.jpg?alt=media&token=ceb8ffd6-f6d5-4dfb-9311-f80517845455',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2292.jpg?alt=media&token=d2cb3ae8-93e3-497c-a8d6-88179b1d2644',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2293.jpg?alt=media&token=d28e2ad3-79a9-46cb-940d-1df21689c865',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2294.jpg?alt=media&token=efd25eec-e97f-4fe3-a67e-4de86d037c36',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2295.jpg?alt=media&token=b9d4d783-420c-4a0e-b3e2-815b7375a59c',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2297.jpg?alt=media&token=27be4ac0-3d58-4042-a4ac-d3c255b8a573',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2298.jpg?alt=media&token=cdad5440-1e82-494c-bc50-862158376a1a',
+  		},
+  		{
+  			caption: 'none',
+  			url: 'https://firebasestorage.googleapis.com/v0/b/ndspace-23fc2.appspot.com/o/thumbnails%2FMass%20hostel%2FIMG_2299.jpg?alt=media&token=a82f7b69-4d44-4373-ac5b-f2d17d14b45d',
+  		}*/]
+  	})
+  }
+
+
+
+ 	var databaseKey = firebase.database().ref().push().key;
+
+	function writeUserData(hostelName, hostelAreaId) {
+	  firebase.database().ref('hostels_index/' + databaseKey).set({
+	    hostelName: hostelName,
+	    hostelAreaId: hostelAreaId,
+	  });
+	}
+
+  var database = firebase.database();
+
+
+  $( "#target" ).submit(function( event ) {
+  
+
+  var hostelName = $('.hostelName').val();
+  var hostelAreaId = $('.hostelAreaId').val();
+
+  console.log(hostelName +" "+ hostelAreaId);
+
+  writeUserData(hostelName, hostelAreaId);
+});
+
+  console.log(firebase.database())
+</script>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>

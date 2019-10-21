@@ -1,0 +1,56 @@
+base url
+https://notification-451cd.firebaseapp.com
+
+endpoint to send notification to user
+params 
+- token - token for user
+- title - title of notification
+- body - body of notification
+
+parameters should be sent as json. example
+data to send
+{
+    "token": "<user token user>",
+    "title": "title of the notification",
+    "body": "the body of the notification"
+}
+
+end point
+https://notification-451cd.firebaseapp.com/api/send
+
+
+
+
+
+
+- topic - topic for user
+- title - title of notification
+- body - body of notification
+
+
+within the code for the android app call this line the HomeActivities/MainActivities
+
+String topic = "" //the topic can be either Male or depending on the gender
+String all = "all" 
+FirebaseMessaging.getInstance().subscribeToTopic(topic);
+FirebaseMessaging.getInstance().subscribeToTopic(all);
+
+notifications can be sent to these groups using the endpoint below
+Male specific messages should be sent to that male topic
+Female specific messages should be sent to the female topic
+Messages meant for everyone can be sent that topic as well
+
+which means all users get to subscribe to th All topic
+
+messages sent via this end point can be used to target the right group i.e All, male, female
+
+data to send
+{
+    "topic": topic,
+    "title": "title of the notification",
+    "body": "the body of the notification"
+}
+
+
+endpoint
+https://notification-451cd.firebaseapp.com/api/sendToAll
